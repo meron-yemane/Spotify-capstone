@@ -35,14 +35,39 @@ $(document).ready(function() {
       $.ajax({
           url: 'https://api.spotify.com/v1/search',
           data: {
-              q: query,
-              type: 'album'
+              q: "genre:" + query, 
+              type: "artist" 
           },
-          success: function (response) {
-              console.log(response);
-          }
+          //success: function (response) {
+          //    console.log(response);
+          //}
+          success: function(response) {
+            console.log(response)
+            for (i = 0; i < response["artists"]["items"].length; i++) {
+              console.log(response["artists"]["items"][i]["name"])
+              $.ajax({
+                url: 'https://api.spotify.com/v1/search',
+                data: {
+                  q: "artist:" + response["artists"]["items"][i]["name"],
+                  type: "track"
+                },
+                success: function(track) {
+                  console.log(track["tracks"]["items"][0]["name"]);
+                }
+              })
+            }
+            
+
+
+            console.log(response.length)
+            //for (i = 0; i < response.length; i++) {
+              //console.log("fh");
+              //console.log(response[i][id]);
+            //};
+          }, 
       });
   };
+
 
   // results.addEventListener('click', function(e) {
   //     var target = e.target;
@@ -67,6 +92,7 @@ $(document).ready(function() {
   //         }
   //     }
   // });
+
 
   $('#myform').submit(function(e) {
       e.preventDefault();
