@@ -12,7 +12,18 @@ body {
 #search {
 background: url('black50.png');
 color: white;
+width: 250px;
+height: 50px;
+border-color: #FF0066;
+font-size: 20px;
+border-radius: 12px;
 }
+
+#search:focus {
+  outline: none;
+}
+
+
 
 
 
