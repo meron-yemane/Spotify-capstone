@@ -3,12 +3,22 @@
   <head>
     <meta charset="UTF-8">
     <title>Spotify Test</title>
+    <link rel="stylesheet" type="text/css" href="float-grid.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
     <form id="myform">
-      <input id="search" type="text">
-      <button type="submit">Go</button>
+      <input list="search-ops" id="search" type="text">
+      <datalist id="search-ops">
+        <option value="Rap"/>
+        <option value="Blues"/>
+        <option value="Country"/>
+      </datalist>
+     <button type="submit">Submit</button>
     </form>
+    <div class="container">
+      
+    </div>
     <script
     src="https://code.jquery.com/jquery-3.1.1.min.js"
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
