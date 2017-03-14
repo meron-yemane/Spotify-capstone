@@ -1,0 +1,19 @@
+body {
+  background: url(background-img.jpg);
+  background-size: cover;
+}
+
+.song {
+  display: block;
+  margin-bottom: -60px;
+}
+
+
+#search {
+background: url('black50.png');
+color: white;
+}
+
+
+
+

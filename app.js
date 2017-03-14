@@ -42,7 +42,7 @@ $(document).ready(function() {
                   console.log(track)
                   console.log(track["tracks"]["items"][0]["name"]);
                   var id = track["tracks"]["items"][0]["id"];
-                  html += '<iframe src="https://embed.spotify.com/?uri=spotify:track:' + id + '" frameborder="0" allowtransparency="true"></iframe>'             
+                  html += '<iframe class="song" src="https://embed.spotify.com/?uri=spotify:track:' + id + '" frameborder="0" allowtransparency="true"></iframe>'             
                   htmlTracker++
                   if (htmlTracker === 5) {
                     console.log(html);
