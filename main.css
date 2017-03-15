@@ -6,26 +6,48 @@ body {
 .song {
   display: block;
   margin-bottom: -60px;
+  width: 365px;
+  margin-left: 50px;
 }
 
+.logo-border {
+  color: white;
+  padding-right: 7px;
+  border: 1px solid white;
+  display: inline-block;
+  margin-left: 1090px;
+  margin-top: 20px;
+}
 
-#search {
+.logo {
+  padding-left: 7px;
+  font-size: 45px;
+  margin-top: 2px;
+  margin-bottom: 2px; 
+}
+
+.search {
 background: url('black50.png');
 color: white;
 width: 250px;
 height: 50px;
-border-color: #FF0066;
+border-color: #990033;
 font-size: 20px;
 border-radius: 12px;
 margin-bottom: 50px;
+margin-left: 50px
 }
 
 
-#search:focus {
+.search:focus {
   outline: none;
 }
 
-#button {
+.button:focus {
+  outline: none;
+}
+
+.button {
   background-color: #990033;
   width: 110px;
   height: 50px;
@@ -36,9 +58,43 @@ margin-bottom: 50px;
   cursor: pointer;
 }
 
-#button::hover {
-
+.error {
+  color: white;
+  font-size: 23px;
+  margin-left: 50px;
+  margin-right: 430px;
+  opacity: 1;
+  transition: 10s ease-in;
 }
+
+.opening-msg {
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+  font-size: 25px;
+}
+
+#opening-button {
+  text-align: center;
+}
+
+.start-button {
+  font-size: 35px;
+  border-color: transparent;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: #990033;
+  color: white;
+}
+
+.start-button:focus {
+  outline: none;
+}
+
+
 
 
 

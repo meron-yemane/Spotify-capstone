@@ -1,32 +1,16 @@
-$(document).ready(function() {
-
-  var client_id = 'f508191a9bf4407ca3d35a6c7f8eb795'; // Your client id
-  var client_secret = 'e8dd51b0aea94a168594cb1a938cb888'; // Your secret
-
-  var fetchTracks = function (albumId, callback) {
-      $.ajax({
-          url: 'https://api.spotify.com/v1/albums/' + albumId,
-          success: function (response) {
-              callback(response);
-          }
-      });
-  };
-
-  var searchAlbums = function (query) {
-    console.log("Search Called")
-    var html = "";
-      $.ajax({
-          url: 'https://api.spotify.com/v1/search',
-          data: {
-              q: "genre:" + query, 
-              type: "artist",
-              limit: "5" 
-          },
-          //success: function (response) {
-          //    console.log(response);
-          //}
-          success: function(response) {
-            console.log(response)
+var searchGenre = function (query) {
+  console.log("Search Called")
+  var html = "";
+    $.ajax({
+        url: 'https://api.spotify.com/v1/search',
+        data: {
+            q: "genre:" + query, 
+            type: "artist",
+            limit: "5" 
+        },
+        success: function(response) {
+          console.log(response["artists"]["items"])
+          if (response["artists"]["items"].length > 0) {
             var htmlTracker = 0 
             for (i = 0; i < 5; i++) {
               console.log(i)
@@ -51,19 +35,61 @@ $(document).ready(function() {
                 }
               })
             }
-          $(".container").html(html); 
-          }, 
-      });
-  };
+          } else {
+            console.log("got in")
+            html += '<p class="error">hmm...looks like the genre didnt return any results. Try searching for another genre, or disKover new music with our drop down list.</p>';
+            $(".container").html(html);
+          }
+        $(".container").html(html); 
+        }, 
+    });
+};
 
+var renderStarterPage = function() {
+  var html = '<p class="opening-msg">Welcome to disKover, an app that allows you explore a wide variety of genres and discover new music!</p>'  
+  html += '<form id="opening-button">'; 
+  html += '<button class="start-button" type="submit">Start Exploring!</button></form>'
+  $(".standard-interface").html(html);
+};
 
-
+$(document).on("submit", "#opening-button", function(event) {
+  event.preventDefault();
+  var standardHtml = '<form id="myform">'
+  standardHtml += '<input list="search-ops" class="search" type="text" placeholder="House" required>'
+  standardHtml += '<datalist id="search-ops">'
+  standardHtml += '<option value="Rap"/>'
+  standardHtml += '<option value="Blues"/>'
+  standardHtml += '<option value="Country"/>'
+  standardHtml += '</datalist>'
+  standardHtml += '<button class="button" type="submit">Get songs</button>'
+  standardHtml += '</form>'
+  $(".standard-interface").html(standardHtml);
   $('#myform').submit(function(e) {
-      e.preventDefault();
-      console.log("form submitted")
-      var search = $('#search').val();
-      console.log("Search Term: " + search)
-      searchAlbums(search);
+    e.preventDefault();
+    console.log("form submitted")
+    var search = $('.search').val();
+    console.log("Search Term: " + search)
+    searchGenre(search);
   });
-
 })
+
+renderStarterPage(); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
