@@ -46,7 +46,7 @@ var searchGenre = function (query) {
 };
 
 var renderStarterPage = function() {
-  var html = '<p class="opening-msg">Welcome to disKover, an app that allows you explore a wide variety of genres and discover new music!</p>'  
+  var html = '<p class="opening-msg">Welcome to disKover, an app that allows you to explore a wide variety of genres and discover new music!</p>'  
   html += '<form id="opening-button">'; 
   html += '<button class="start-button" type="submit">Start Exploring!</button></form>'
   $(".standard-interface").html(html);
@@ -55,8 +55,8 @@ var renderStarterPage = function() {
 $(document).on("submit", "#opening-button", function(event) {
   event.preventDefault();
   var standardHtml = '<form id="myform">'
-  standardHtml += '<input list="search-ops" class="search" type="text" placeholder="House" required>'
-  standardHtml += '<datalist id="search-ops">'
+  standardHtml += '<input list="search-ops" class="search" type="text" placeholder="Enter genre here" required>'
+  standardHtml += '<datalist id="search-ops" class="list">'
   standardHtml += '<option value="Rap"/>'
   standardHtml += '<option value="Blues"/>'
   standardHtml += '<option value="Country"/>'
