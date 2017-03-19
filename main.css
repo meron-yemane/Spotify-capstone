@@ -19,7 +19,7 @@ body {
   padding-right: 7px;
   border: 1px solid white;
   display: inline-block;
-  margin-left: 80%;
+  margin-left: 70%;
   margin-top: 20px;
 }
 
@@ -111,7 +111,15 @@ body {
   cursor: pointer;
 }
 
-
 .genre-list {
   color: white;
+  position: fixed;
+  left: 30px;
+  bottom: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .logo-border {
+    margin-left: 40%;
+  }
 }
