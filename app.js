@@ -53,15 +53,18 @@ var searchGenre = function (query) {
 };
 
 var renderStarterPage = function() {
-  var html = '<p class="opening-msg">Welcome to disKover, an app that allows you to explore a wide variety of genres and discover new music!</p>'  
+  var html = '<div class="col-3">'  
+  html += '<p class="opening-msg">Welcome to disKover, an app that allows you to explore a wide variety of genres and discover new music!</p>'
   html += '<form id="opening-button">'; 
   html += '<button class="start-button" type="submit">Start Exploring!</button></form>'
+  html += '</div>'
   $(".standard-interface").html(html);
 };
 
 $(document).on("submit", "#opening-button", function(event) {
   event.preventDefault();
-  var standardHtml = '<form id="myform">'
+  var standardHtml = '<div class="col-">'
+  standardHtml += '<form id="myform">'
   standardHtml += '<input list="search-ops" class="search" type="text" placeholder="Enter genre here" required>'
   standardHtml += '<datalist id="search-ops" class="list">'
   standardHtml += '<option value="Rap"/>'
@@ -70,7 +73,7 @@ $(document).on("submit", "#opening-button", function(event) {
   standardHtml += '</datalist>'
   standardHtml += '<button class="button" type="submit">Get songs</button>'
   standardHtml += '</form>'
-  standardHtml += '<a class="genre-list" href="https://docs.google.com/spreadsheets/d/1L3F3oKddQxz2v9a_eqchacv4XXqVru1AMwsbVUqqMsU/pub" target="_blank">Want to explore more genres? This list should keep you busy.</a>'
+  standardHtml += '</div>'
   $(".standard-interface").html(standardHtml);
   $('#myform').submit(function(e) {
     e.preventDefault();

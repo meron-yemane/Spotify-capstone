@@ -1,3 +1,4 @@
+
 body {
   background: url(background-img.jpg);
   background-size: cover;
@@ -10,6 +11,7 @@ body {
   margin-bottom: -60px;
   width: 365px;
   margin-left: 4%;
+  position: relative;
 }
 
 .logo-border {
@@ -75,6 +77,7 @@ body {
   margin-right: 35%;
   opacity: 1;
   transition: 10s ease-in;
+  padding-bottom: 40%;
 }
 
 .opening-msg {
@@ -108,16 +111,7 @@ body {
   cursor: pointer;
 }
 
+
 .genre-list {
   color: white;
-  margin-left: 4%;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 3%; 
 }
-
-
-
-
-
-
