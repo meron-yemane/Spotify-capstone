@@ -3,7 +3,7 @@ var searchGenre = function (query) {
     $.ajax({
         url: 'https://api.spotify.com/v1/search',
         data: {
-            q: "genre:" + query, 
+            q: "genre:" + '"' + query + '"', 
             type: "artist",
             limit: "20" 
         },
