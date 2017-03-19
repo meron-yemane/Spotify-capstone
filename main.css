@@ -104,6 +104,18 @@ body {
   outline: none;
 }
 
+#search-ops {
+  cursor: pointer;
+}
+
+.genre-list {
+  color: white;
+  margin-left: 4%;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 3%; 
+}
+
 
 
 

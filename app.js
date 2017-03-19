@@ -1,42 +1,49 @@
 var searchGenre = function (query) {
-  console.log("Search Called")
   var html = "";
     $.ajax({
         url: 'https://api.spotify.com/v1/search',
         data: {
             q: "genre:" + query, 
             type: "artist",
-            limit: "5" 
+            limit: "20" 
         },
         success: function(response) {
           console.log(response["artists"]["items"])
           if (response["artists"]["items"].length > 0) {
-            var htmlTracker = 0 
+            var htmlTracker = 0
+            artist_lst = [] 
             for (i = 0; i < 5; i++) {
-              console.log(i)
-              console.log(response["artists"]["items"][i]["name"])
+              while (true) {
+                var artist_num = Math.floor(Math.random() * 20.0);
+                if (!artist_lst.includes(artist_num)) {
+                  break
+                };
+              };
+              console.log(artist_num)
+              artist_lst.push(artist_num);
+              console.log(artist_lst)
+              console.log(response["artists"]["items"][artist_num]["name"])
               $.ajax({
                 url: 'https://api.spotify.com/v1/search',
                 data: {
-                  q: "artist:" + response["artists"]["items"][i]["name"],
+                  q: "artist:" + response["artists"]["items"][artist_num]["name"],
                   type: "track",
-                  limit: "1"
+                  limit: "5"
                 },
                 success: function(track) {
-                  console.log(track)
-                  console.log(track["tracks"]["items"][0]["name"]);
-                  var id = track["tracks"]["items"][0]["id"];
+                  var track_num = Math.floor(Math.random() * 5.0)
+                  console.log(track["tracks"]["items"][track_num]["name"]);
+                  var id = track["tracks"]["items"][track_num]["id"];
+                  console.log(track_num)
                   html += '<iframe class="song" src="https://embed.spotify.com/?uri=spotify:track:' + id + '" frameborder="0" allowtransparency="true"></iframe>'             
                   htmlTracker++
                   if (htmlTracker === 5) {
-                    console.log(html);
                     $(".container").html(html);
                   };
                 }
               })
             }
           } else {
-            console.log("got in")
             html += '<p class="error">hmm...looks like the genre didnt return any results. Try searching for another genre, or disKover new music with our drop down list.</p>';
             $(".container").html(html);
           }
@@ -63,32 +70,16 @@ $(document).on("submit", "#opening-button", function(event) {
   standardHtml += '</datalist>'
   standardHtml += '<button class="button" type="submit">Get songs</button>'
   standardHtml += '</form>'
+  standardHtml += '<a class="genre-list" href="https://docs.google.com/spreadsheets/d/1L3F3oKddQxz2v9a_eqchacv4XXqVru1AMwsbVUqqMsU/pub" target="_blank">Want to explore more genres? This list should keep you busy.</a>'
   $(".standard-interface").html(standardHtml);
   $('#myform').submit(function(e) {
     e.preventDefault();
-    console.log("form submitted")
     var search = $('.search').val();
-    console.log("Search Term: " + search)
     searchGenre(search);
   });
 })
 
 renderStarterPage(); 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
