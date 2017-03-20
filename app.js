@@ -8,7 +8,6 @@ var searchGenre = function (query) {
             limit: "20" 
         },
         success: function(response) {
-          console.log(response["artists"]["items"])
           if (response["artists"]["items"].length > 0) {
             var htmlTracker = 0
             artist_lst = [] 
@@ -19,10 +18,7 @@ var searchGenre = function (query) {
                   break
                 };
               };
-              console.log(artist_num)
               artist_lst.push(artist_num);
-              console.log(artist_lst)
-              console.log(response["artists"]["items"][artist_num]["name"])
               $.ajax({
                 url: 'https://api.spotify.com/v1/search',
                 data: {
@@ -31,10 +27,8 @@ var searchGenre = function (query) {
                   limit: "5"
                 },
                 success: function(track) {
-                  var track_num = Math.floor(Math.random() * 5.0)
-                  console.log(track["tracks"]["items"][track_num]["name"]);
+                  var track_num = Math.floor(Math.random() * 5.0);
                   var id = track["tracks"]["items"][track_num]["id"];
-                  console.log(track_num)
                   html += '<iframe class="song" src="https://embed.spotify.com/?uri=spotify:track:' + id + '" frameborder="0" allowtransparency="true"></iframe>'             
                   htmlTracker++
                   if (htmlTracker === 5) {
@@ -70,6 +64,9 @@ $(document).on("submit", "#opening-button", function(event) {
   standardHtml += '<option value="Rap"/>'
   standardHtml += '<option value="Blues"/>'
   standardHtml += '<option value="Country"/>'
+  standardHtml += '<option value="House"/>'
+  standardHtml += '<option value="Rock"/>'
+  standardHtml += '<option value="Acid Techno"/>'
   standardHtml += '</datalist>'
   standardHtml += '<button class="button" type="submit">Get songs</button>'
   standardHtml += '</form>'

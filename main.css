@@ -1,4 +1,3 @@
-
 body {
   background: url(background-img.jpg);
   background-size: cover;
@@ -19,7 +18,7 @@ body {
   padding-right: 7px;
   border: 1px solid white;
   display: inline-block;
-  margin-left: 70%;
+  margin-left: 80%;
   margin-top: 20px;
 }
 
@@ -33,7 +32,7 @@ body {
 .search {
   background: url('black50.png');
   color: white;
-  width: 250px;
+  width: 225px;
   height: 50px;
   border-color: #990033;
   font-size: 20px;
@@ -116,10 +115,30 @@ body {
   position: fixed;
   left: 30px;
   bottom: 0;
+  margin-bottom: 1%;
 }
 
 @media only screen and (max-width: 600px) {
   .logo-border {
-    margin-left: 40%;
+    margin-left: 55%;
+  }
+}
+
+@media only screen and (max-width: 361px) {
+  .search {
+    width: 200px;
+  }
+  .button {
+    width: 90px;
+    font-size: 15px;
+  }
+  .opening-msg {
+    font-size: 20px;
+  }
+  .start-button {
+    font-size: 25px;
+  }
+  .error {
+    font-size: 15px;
   }
 }
