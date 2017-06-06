@@ -1,0 +1,20 @@
+{
+  "name": "spotify-test",
+  "version": "1.0.0",
+  "description": "An app designed for music genre exploration.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meron93/Spotify-capstone.git"
+  },
+  "author": "Meron Yemane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meron93/Spotify-capstone/issues"
+  },
+  "homepage": "https://github.com/meron93/Spotify-capstone#readme"
+}
