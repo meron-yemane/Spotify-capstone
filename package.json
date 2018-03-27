@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/meron93/Spotify-capstone/issues"
   },
-  "homepage": "https://github.com/meron93/Spotify-capstone#readme"
+  "homepage": "https://github.com/meron93/Spotify-capstone#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "request": "^2.85.0",
+    "requirejs": "^2.3.5",
+    "watchify": "^3.11.0"
+  }
 }
