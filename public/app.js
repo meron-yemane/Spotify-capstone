@@ -1,5 +1,6 @@
+
 //"use strict";
-const {searchGenre} = require('./search-genre-router.js');
+//const {searchGenre} = require('./search-genre-router.js');
 //var request = require('request');
 //var {client_id, client_secret} = require('../config');
 
