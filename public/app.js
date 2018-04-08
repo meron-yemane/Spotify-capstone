@@ -183,7 +183,13 @@ $(document).on("submit", "#opening-button", function(event) {
     e.preventDefault();
     var search = $('.search').val();
     $('.search').val("");
-    searchGenre(search);
+    //searchGenre(search);
+    $.ajax({
+      url: "search/genresearch",
+      type: "GET"
+    }).done(function(data, status) {
+      console.log("hello")
+    })
   });
 })
 
