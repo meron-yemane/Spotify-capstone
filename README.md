@@ -17,7 +17,7 @@ The main purpose of disKov is to allow users to easily explore genres by display
 ### Genre Search Page
 ![alt-text](https://github.com/meron93/Spotify-capstone/blob/master/screenshots/genresearchscreenshot.png "Genre Search Page")
 
-##Built With
+## Built With
 
 * HTML/CSS/JavaScript/jQuery
 * Node.js with Express
