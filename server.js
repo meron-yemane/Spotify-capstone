@@ -7,16 +7,8 @@ const jsonParser = require('body-parser').json();
 
 const client_id = 'f508191a9bf4407ca3d35a6c7f8eb795';
 const client_secret = '44c1ba6d88714eeca37e42eddaf463b1';
-//const cors = require('cors')
 app.use(express.static('public'));
 app.use(jsonParser);
-
-//app.listen(process.env.PORT || 8080, () => console.log("listening"));
-//const genreRouter = express.Router();
-// app.use(cors({
-//   origin: 'http://localhost:8080'
-// }));
-// your application requests authorization
 
 app.get('/genresearch', (req, res) => {
   var html = "";
@@ -34,7 +26,6 @@ app.get('/genresearch', (req, res) => {
   };
 
   request.post(authOptions, function(error, response, body) {
-    console.log("genre", genre)
     if (!error && response.statusCode === 200) {
 
       // use the access token to access the Spotify Web API
@@ -53,9 +44,6 @@ app.get('/genresearch', (req, res) => {
         json: true
       };
       request.get(options, function(error, response, body) {
-        // console.log("MADDEE IITTTTTT");
-        // console.log("response", response)
-        // console.log("body", body["artists"]["items"])
         if (body["artists"]["items"].length > 0) {
           var htmlTracker = 0
           var artist_lst = []
@@ -83,7 +71,6 @@ app.get('/genresearch', (req, res) => {
             };
             request.get(trackOptions, function(error, response, body) {
               var track_num = Math.floor(Math.random() * 5.0);
-              console.log("body", body)
               var id = body["tracks"]["items"][track_num]["id"];
               html += '<iframe class="song" src="https://open.spotify.com/embed?uri=spotify:track:' + id + '" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'             
               htmlTracker++
@@ -101,6 +88,6 @@ app.get('/genresearch', (req, res) => {
     }
   });
 });
-// app.use('/search/', genreRouter);
+
 app.listen(process.env.PORT || 8080, () => console.log("listening"));
 module.exports = {app};
