@@ -103,14 +103,16 @@ body {
 .start-button {
   font-size: 35px;
   border-color: transparent;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
   font-family: 'Abel', sans-serif;
+  transition-duration: .3s;
 }
 
 .start-button:hover {
-  background-color: #990033;
-  color: white;
+  background-color: lightgrey;
+  border: 1px solid lightgrey;
+  color: black;
 }
 
 .start-button:focus {
