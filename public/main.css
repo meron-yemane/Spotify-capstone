@@ -194,3 +194,17 @@ body {
   }
 }
 
+@media only screen and (max-width: 500px) {
+  #myform {
+    display: grid;
+  }
+
+  .search {
+    margin-bottom: 0px;
+  }
+
+  .button {
+    margin-left: 4%;
+  }
+}
+
