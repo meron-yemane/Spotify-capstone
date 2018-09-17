@@ -81,7 +81,7 @@ app.get('/genresearch', (req, res) => {
           }
         } else {
           html = "";
-          html += '<p class="error">hmm...looks like the genre didnt return any results. Try searching for another genre, or disKover new music with our drop down list.</p>';
+          html += '<p class="error">hmm...looks like the genre didnt return any results. Try searching for another genre.</p>';
           return res.status(200).json(html)
         }
       });

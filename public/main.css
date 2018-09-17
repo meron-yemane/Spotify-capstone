@@ -144,6 +144,12 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+  .error {
+    margin-left: unset;
+    margin-right: unset;
+    text-align: center;
+  }
+
   .logo-border {
     margin-left: 55%;
   }
@@ -209,6 +215,10 @@ body {
 }
 
 @media only screen and (max-width: 640px) {
+  .start-button {
+    background-color: white !important;
+  }
+
   .col-3 {
     width: 100%;
   }
